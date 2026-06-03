@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Chairs | Arc Furnitech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/arclogo.webp" alt="Logo">
+            <h2>Arc Furnitech</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- EXECUTIVE CHAIR DYNAMIC CONTENT -->
+    <section class="executive-page-wrapper">
+        
+        <!-- VIEW 1: CATEGORIES GRID (Visible First) -->
+        <div id="executive-grid-view" class="exec-view" style="display: block;">
+            <div class="section-title" style="padding-top: 120px;">
+                <p>EXECUTIVE COLLECTION</p>
+                <h2>Premium Executive Chairs</h2>
+            </div>
+            <div class="exec-grid" id="chair-grid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+                <!-- VIEW 2: DETAIL PAGE (Hidden Initially) -->
+        <div id="executive-detail-view" class="exec-view" style="display: none;">
+            <div class="exec-detail-container">
+                
+                <!-- UPDATED IMAGE GALLERY AREA -->
+                <div class="exec-detail-image">
+                    <div class="exec-main-media" id="detail-main-media">
+                        <!-- Main Image or Video will be injected here by JavaScript -->
+                    </div>
+                    <div class="exec-thumbnails-row" id="detail-thumbnails">
+                        <!-- Thumbnails will be injected here by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="exec-detail-info">
+                    <!-- Back Button -->
+                    <button class="btn-back" onclick="showExecView('grid')">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </button>
+
+                    <h1 id="detail-name" class="exec-detail-name"></h1>
+                    <p id="detail-price" class="exec-detail-price"></p>
+                    
+                    <a href="contact.html" class="enquire-btn" style="display: block; text-align: center; margin-bottom: 30px;">Enquire Now</a>
+                    
+                    <!-- Interactive Description Button -->
+                    <button class="btn-description" onclick="toggleDescription()">
+                        <span>Read Full Description</span>
+                        <span id="desc-icon">+</span>
+                    </button>
+                    <div id="detail-description" class="description-content"></div>
+                </div>
+            </div>
+        </div>
+                <div class="exec-detail-info">
+                    <!-- Back Button -->
+                    <button class="btn-back" onclick="showExecView('grid')">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </button>
+
+                    <h1 id="detail-name" class="exec-detail-name"></h1>
+                    <p id="detail-price" class="exec-detail-price"></p>
+                    
+                    <a href="contact.html" class="enquire-btn" style="display: block; text-align: center; margin-bottom: 30px;">Enquire Now</a>
+                    
+                    <!-- Interactive Description Button -->
+                    <button class="btn-description" onclick="toggleDescription()">
+                        <span>Read Full Description</span>
+                        <span id="desc-icon">+</span>
+                    </button>
+                    <div id="detail-description" class="description-content"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PREMIUM FOOTER -->
+    <footer class="premium-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="brand-slider">
+                    <div class="brand-track" id="brandTrack">
+                        <span>Arc Furnitech</span>
+                        <span>आर्क फर्निटेक</span>
+                        <span>ஆர்க் ஃபர்னிடெக்</span>
+                        <span>ఆర్క్ ఫర్నిటెక్</span>
+                        <span>આર્ક ફર્નિટેક</span>
+                    </div>
+                </div>
+                <p class="footer-brand-text">Premium office furniture crafted for modern workspaces and productivity.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column"><h3>About</h3><a href="about.html">Our Story</a><a href="#">Factory</a><a href="#">Design Process</a><a href="#">Careers</a></div>
+                <div class="footer-column"><h3>Products</h3><a href="product.html">Office Chairs</a><a href="#">Workstations</a><a href="#">Conference Tables</a><a href="#">Storage Units</a></div>
+                <div class="footer-column"><h3>Services</h3><a href="#">Customization</a><a href="#">Installation</a><a href="#">Bulk Orders</a><a href="#">Support</a></div>
+                <div class="footer-column"><h3>Contact</h3><a href="contact.html">Contact Us</a><a href="#">Nagpur Office</a><a href="#">Google Maps</a><a href="#">WhatsApp</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-cities"><h4>Cities We Serve</h4><p>Nagpur | Pune | Mumbai | Hyderabad | Bengaluru | Raipur | Indore</p></div>
+            <div class="footer-categories"><h4>Furniture Categories</h4><p>Ergonomic Chairs | Executive Seating | Workstations | Conference Tables | Storage Solutions</p></div>
+        </div>
+        <div class="footer-copy"><p>© 2026 Arc Furnitech. All Rights Reserved.</p></div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
