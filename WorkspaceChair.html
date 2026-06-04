@@ -3,97 +3,531 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Chairs | Arc Furnitech</title>
+    <title>Workstations | Arc Furnitech</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- GLOBAL RESETS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- NAVBAR STYLES --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar .logo h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #43b78c;
+        }
+
+        /* --- SECTION TITLES --- */
+        .section-title {
+            text-align: center;
+            padding: 120px 20px 40px;
+        }
+
+        .section-title p {
+            color: #43b78c;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        /* --- GRID VIEW --- */
+        .exec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            justify-content: center;
+            padding-bottom: 60px;
+            max-width: 70%;
+            margin: 0 auto;
+        }
+
+        .exec-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+
+        .exec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .exec-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #f0f0f0;
+        }
+
+        .exec-card h3 {
+            padding: 20px 20px 5px;
+            font-size: 22px;
+        }
+
+        .exec-card p {
+            padding: 0 20px 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* --- PRODUCT DETAIL VIEW --- */
+        .product-detail {
+            display: none; /* Hidden by default */
+            padding: 40px 20px;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .exec-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Gallery */
+        .product-gallery {
+            width: 100%;
+        }
+
+        .main-display {
+            background: #eef7f3;
+            border-radius: 30px;
+            overflow: hidden;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e1e1e1;
+        }
+
+        .main-display img, 
+        .main-display video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .thumbnail-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .thumb {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+
+        .thumb:hover {
+            opacity: 0.8;
+        }
+
+        .thumb.active, 
+        .video-thumb.active {
+            border-color: #43b78c;
+            transform: scale(1.05);
+        }
+
+        .video-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: #43b78c;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        /* Product Info */
+        .product-info h1 {
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .subtitle {
+            color: #43b78c;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .product-info > p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .enquire-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #43b78c;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+
+        .enquire-btn:hover {
+            background: #369670;
+        }
+
+        .back-link {
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .back-link a {
+            color: #43b78c;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">
+            <!-- Using a placeholder since local image won't load -->
             <img src="images/arclogo.webp" alt="Logo">
             <h2>Arc Furnitech</h2>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="product.html">Products</a></li>
+            <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- EXECUTIVE CHAIR DYNAMIC CONTENT -->
-    <section class="executive-page-wrapper">
-        
-        <!-- VIEW 1: CATEGORIES GRID (Visible First) -->
-        <div id="executive-grid-view" class="exec-view" style="display: block;">
-            <div class="section-title" style="padding-top: 120px;">
-                <p>EXECUTIVE COLLECTION</p>
-                <h2>Premium Executive Chairs</h2>
-            </div>
-            <div class="exec-grid" id="chair-grid">
-                <!-- Populated by JavaScript -->
-            </div>
+    <!-- GRID VIEW SECTION -->
+    <section id="executive-grid-view">
+        <div class="section-title">
+            <p>WORKSPACE COLLECTION</p>
+            <h2>Premium Workspace Chairs</h2>
         </div>
 
-                <!-- VIEW 2: DETAIL PAGE (Hidden Initially) -->
-        <div id="executive-detail-view" class="exec-view" style="display: none;">
-            <div class="exec-detail-container">
-                
-                <!-- UPDATED IMAGE GALLERY AREA -->
-                <div class="exec-detail-image">
-                    <div class="exec-main-media" id="detail-main-media">
-                        <!-- Main Image or Video will be injected here by JavaScript -->
-                    </div>
-                    <div class="exec-thumbnails-row" id="detail-thumbnails">
-                        <!-- Thumbnails will be injected here by JavaScript -->
-                    </div>
-                </div>
+        <div class="exec-grid">
+            <!-- CARD 1 -->
+            <div class="exec-card" data-target="black-mesh">
+                <img src="images/workspace/black mesh.png">
+                <h3>Black Mesh Chair</h3>
+                <p>Black mesh back with armrests and wheels.</p>
+            </div>
 
-                <div class="exec-detail-info">
-                    <!-- Back Button -->
-                    <button class="btn-back" onclick="showExecView('grid')">
-                        <i class="fas fa-arrow-left"></i> Back to Collection
-                    </button>
+            <!-- CARD 2 -->
+            <div class="exec-card" data-target="mid-back">
+                <img src="images/arc_align_pro2.jpeg">
+                <h3>Perforated Chair</h3>
+                <p>Distinctive chair with hollow backrest and seat.</p>
+            </div>
 
-                    <h1 id="detail-name" class="exec-detail-name"></h1>
-                    <p id="detail-price" class="exec-detail-price"></p>
-                    
-                    <a href="contact.html" class="enquire-btn" style="display: block; text-align: center; margin-bottom: 30px;">Enquire Now</a>
-                    
-                    <!-- Interactive Description Button -->
-                    <button class="btn-description" onclick="toggleDescription()">
-                        <span>Read Full Description</span>
-                        <span id="desc-icon">+</span>
-                    </button>
-                    <div id="detail-description" class="description-content"></div>
-                </div>
+            <!-- CARD 3 -->
+            <div class="exec-card" data-target="ergonomic">
+                <img src="images/arc_aura1.jpeg">
+                <h3>Red Fabric Chair</h3>
+                <p>Red fabric, black arms.</p>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="exec-card" data-target="padded">
+                <img src="images/arc_vertex1.jpeg">
+                <h3>Padded Chair</h3>
+                <p>Mesh back, padded seat.</p>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="exec-card" data-target="platform">
+                <img src="images/arc_vertex1.jpeg">
+                <h3>Platform Chair</h3>
+                <p>Chair on raised platform.</p>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="exec-card" data-target="task">
+                <img src="images/arc_vertex1.jpeg">
+                <h3>Task Chair</h3>
+                <p>Simple indoor office chair.</p>
             </div>
         </div>
-                <div class="exec-detail-info">
-                    <!-- Back Button -->
-                    <button class="btn-back" onclick="showExecView('grid')">
-                        <i class="fas fa-arrow-left"></i> Back to Collection
-                    </button>
-
-                    <h1 id="detail-name" class="exec-detail-name"></h1>
-                    <p id="detail-price" class="exec-detail-price"></p>
-                    
-                    <a href="contact.html" class="enquire-btn" style="display: block; text-align: center; margin-bottom: 30px;">Enquire Now</a>
-                    
-                    <!-- Interactive Description Button -->
-                    <button class="btn-description" onclick="toggleDescription()">
-                        <span>Read Full Description</span>
-                        <span id="desc-icon">+</span>
-                    </button>
-                    <div id="detail-description" class="description-content"></div>
-                </div>
-            </div>
-        </div>
-
     </section>
+
+    <!-- Black Mesh DETAIL -->
+    <section id="black-mesh" class="product-detail">
+        <div class="back-link">
+            <a href="WorkspaceChair.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Collection
+            </a>
+        </div>
+
+        <div class="exec-detail-container">
+            <!-- Gallery -->
+            <div class="product-gallery">
+                <div class="main-display">
+                    <img src="images/workspace/black mesh.png" alt="Black Mesh Chair">
+                </div>
+                <div class="thumbnail-gallery">
+                    <img src="images/workspace/black mesh.png" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/AdjustableHead1.png" class="thumb" onclick="changeImage(this)">
+                    <img src="images/AdjustableHead3.png" class="thumb" onclick="changeImage(this)">
+                    <!-- Video Thumb -->
+                    <div class="video-thumb" onclick="playVideo(this)">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info -->
+            <div class="product-info">
+                <h1>Black Mesh Chair</h1>
+                <p class="subtitle">Black mesh back with armrests and wheels.</p>
+                <p>The image displays an indoor office scene centered around a classic black mesh office chair. It features armrests and a five-star caster base for mobility. The chair is positioned in front of a white wall with a black flat-screen TV mounted above. The floor is brown with matching baseboards, creating a simple and clean layout focused on office furniture.</p>
+                
+                <a href="contact.html" class="enquire-btn">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perforated Chair DETAIL -->
+    <section id="mid-back" class="product-detail">
+        <div class="back-link">
+            <a href="WorkspaceChair.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Collection
+            </a>
+        </div>
+
+        <div class="exec-detail-container">
+            <div class="product-gallery">
+                <div class="main-display">
+                    <img src="images/arc_align_pro2.jpeg" alt="Mid Back">
+                </div>
+                <div class="thumbnail-gallery">
+                    <img src="images/arc_align_pro2.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/ExecutivePage/mid-back1.png" class="thumb" onclick="changeImage(this)">
+                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1>Perforated Chair</h1>
+                <p class="subtitle">Distinctive chair with hollow backrest and seat.</p>
+                <p>This image features an office chair that stands out due to its yellow hollow (perforated) backrest paired with a black seat. The chair is supported by a five-wheeled rolling base that includes protective covers on the legs. It is set against a white wall with a brown baseboard and floor, presented in a minimalist manner that highlights the chair's unique design.</p>
+                <a href="contact.html" class="enquire-btn">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Red Fabric Chair DETAIL -->
+    <section id="ergonomic" class="product-detail">
+        <div class="back-link">
+            <a href="WorkspaceChair.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Collection
+            </a>
+        </div>
+
+        <div class="exec-detail-container">
+            <div class="product-gallery">
+                <div class="main-display">
+                    <img src="images/ExecutivePage/ergo1.jpeg">
+                </div>
+                <div class="thumbnail-gallery">
+                    <img src="images/arc_aura1.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/ExecutivePage/ergo2.jpeg" class="thumb" onclick="changeImage(this)">
+                    <img src="images/HB-ErgonomicOfficeChair/ergo3.png" class="thumb" onclick="changeImage(this)">
+                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1>Red Fabric Chair</h1>
+                <p class="subtitle">Red fabric, black arms</p>
+                <p>The picture shows a red fabric office chair designed with black armrests and a five-pointed star base equipped with wheels. The chair rests on a brown floor against a white wall background. It represents a standard office setup without any text or document elements, focusing entirely on the colorful fabric furniture.</p>
+                <a href="contact.html" class="enquire-btn">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Padded Chair DETAIL -->
+    <section id="padded" class="product-detail">
+        <div class="back-link">
+            <a href="WorkspaceChair.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Collection
+            </a>
+        </div>
+
+        <div class="exec-detail-container">
+            <div class="product-gallery">
+                <div class="main-display">
+                    <img src="images/arc_vertex1.jpeg">
+                </div>
+                <div class="thumbnail-gallery">
+                    <img src="images/arc_vertex1.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/ExecutivePage/mesh1.png" class="thumb" onclick="changeImage(this)">
+                    <img src="images/ExecutivePage/mesh2.png" class="thumb" onclick="changeImage(this)">
+                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1>Padded Chair</h1>
+                <p class="subtitle">Mesh back, padded seat</p>
+                <p>This image showcases an indoor scene where a black office chair with a mesh backrest, armrests, and a five-wheel base is the central focus. The upper wall features a mounted black flat-screen TV and an air conditioning unit in the top left corner. The background includes a white wall and brown baseboards, with the chair situated on a brown platform.</p>
+                <a href="contact.html" class="enquire-btn">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+    <!-- Platform Chair DETAIL -->
+    <section id="platform" class="product-detail">
+        <div class="back-link">
+            <a href="WorkspaceChair.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Collection
+            </a>
+        </div>
+
+        <div class="exec-detail-container">
+            <div class="product-gallery">
+                <div class="main-display">
+                    <img src="images/arc_vertex1.jpeg">
+                </div>
+                <div class="thumbnail-gallery">
+                    <img src="images/arc_vertex1.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/ExecutivePage/mesh1.png" class="thumb" onclick="changeImage(this)">
+                    <img src="images/ExecutivePage/mesh2.png" class="thumb" onclick="changeImage(this)">
+                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1>Platform Chair</h1>
+                <p class="subtitle">Chair on raised platform.</p>
+                <p>The image illustrates a black mesh office chair complete with armrests and a five-wheel base. Uniquely, this chair is placed on a brown tabletop or raised platform rather than the bare floor. The background consists of a white wall with a black wall-mounted device above and a brown baseboard, depicting a clean indoor office scene.</p>
+                <a href="contact.html" class="enquire-btn">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+    <!-- Task Chair DETAIL -->
+    <section id="task" class="product-detail">
+        <div class="back-link">
+            <a href="WorkspaceChair.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Collection
+            </a>
+        </div>
+
+        <div class="exec-detail-container">
+            <div class="product-gallery">
+                <div class="main-display">
+                    <img src="images/arc_vertex1.jpeg">
+                </div>
+                <div class="thumbnail-gallery">
+                    <img src="images/arc_vertex1.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/ExecutivePage/mesh1.png" class="thumb" onclick="changeImage(this)">
+                    <img src="images/ExecutivePage/mesh2.png" class="thumb" onclick="changeImage(this)">
+                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1>Task Chair</h1>
+                <p class="subtitle">Simple indoor office chair</p>
+                <p>This image showcases an indoor scene where a black office chair with a mesh backrest, armrests, and a five-wheel base is the central focus. The upper wall features a mounted black flat-screen TV and an air conditioning unit in the top left corner. The background includes a white wall and brown baseboards, with the chair situated on a brown platform.</p>
+                <a href="contact.html" class="enquire-btn">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="spacer" style="height: 50px;"></div>
+
 
     <!-- PREMIUM FOOTER -->
     <footer class="premium-footer">
@@ -129,7 +563,116 @@
         </div>
         <div class="footer-copy"><p>© 2026 Arc Furnitech. All Rights Reserved.</p></div>
     </footer>
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Grid to Detail Navigation Logic
+            const cards = document.querySelectorAll(".exec-card");
+            const detailSections = document.querySelectorAll(".product-detail");
+            const gridView = document.getElementById("executive-grid-view");
 
+            cards.forEach(card => {
+                card.addEventListener("click", () => {
+                    const targetId = card.dataset.target;
+                    
+                    // Hide Grid
+                    gridView.style.display = "none";
+
+                    // Hide all details first
+                    detailSections.forEach(section => {
+                        section.style.display = "none";
+                    });
+
+                    // Show target detail
+                    const targetSection = document.getElementById(targetId);
+                    if(targetSection) {
+                        targetSection.style.display = "block";
+                    }
+
+                    // Smooth scroll to top
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            });
+
+            // 2. Back Button Logic
+            document.querySelectorAll(".btn-back").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault(); 
+                    
+                    // Hide all details
+                    detailSections.forEach(section => {
+                        section.style.display = "none";
+                    });
+
+                    // Show grid
+                    gridView.style.display = "block";
+
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            });
+
+            // 3. Footer Language Slider Logic (Fixed to be inside DOMContentLoaded)
+            const brandTrack = document.getElementById("brandTrack");
+
+            if (brandTrack) {
+                let currentSlide = 0;
+                const totalSlides = 5;
+                const slideHeight = 70; // Match CSS height of span
+
+                setInterval(() => {
+                    currentSlide++;
+                    if (currentSlide >= totalSlides) {
+                        currentSlide = 0;
+                    }
+                    brandTrack.style.transform = `translateY(-${currentSlide * slideHeight}px)`;
+                }, 1000); // 1 second per slide
+            }
+        });
+
+        // 4. Image Gallery Logic
+        function changeImage(thumb) {
+            // Find the closest parent gallery container
+            const gallery = thumb.closest('.product-gallery');
+            
+            // Find the display area inside THIS gallery
+            const display = gallery.querySelector('.main-display');
+            
+            // Update image source
+            display.innerHTML = `<img src="${thumb.src}" alt="Product Detail" style="width:100%; height:100%; object-fit:contain;">`;
+
+            // Remove active class from all thumbs in THIS gallery
+            gallery.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked thumb
+            thumb.classList.add('active');
+
+            // Reset video thumb styling if active
+            const videoThumb = gallery.querySelector('.video-thumb');
+            if(videoThumb) videoThumb.classList.remove('active');
+        }
+
+        // 5. Video Play Logic
+        function playVideo(btn) {
+            // Find the closest parent gallery container
+            const gallery = btn.closest('.product-gallery');
+            
+            // Find the display area inside THIS gallery
+            const display = gallery.querySelector('.main-display');
+
+            // Inject Video HTML
+            display.innerHTML = `
+                <video controls autoplay style="width:100%; height:100%; object-fit:contain;">
+                    <source src="videos/executive.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            `;
+
+            // Visual feedback
+            gallery.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+        }
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
