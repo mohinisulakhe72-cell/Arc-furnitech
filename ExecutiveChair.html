@@ -238,15 +238,18 @@
             font-size: 16px;
         }
 
+        /* --- UPDATED STYLES --- */
         .enquire-btn {
-            display: inline-block;
-            padding: 15px 40px;
+            display: block; /* Changed to block for centering */
+            margin: 20px auto 0; /* Centers horizontally with top margin */
+            width: fit-content; /* Prevents it from stretching full width */
+            padding: 10px 25px; /* Smaller padding */
             background: #43b78c;
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 14px; /* Smaller font size */
             transition: background 0.3s;
         }
 
@@ -255,8 +258,7 @@
         }
 
         .back-link {
-            max-width: 1200px;
-            margin: 0 auto 20px;
+            margin-bottom: 20px; /* Spacing for the link inside the info box */
             display: block;
         }
 
@@ -285,7 +287,7 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
+            <li><a href="product.html">Products</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -331,12 +333,6 @@
 
     <!-- HIGH BACK DETAIL -->
     <section id="high-back" class="product-detail">
-        <div class="back-link">
-            <a href="ExecutiveChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <!-- Gallery -->
             <div class="product-gallery">
@@ -347,8 +343,8 @@
                     <img src="images/AdjustableHead2.png" class="thumb active" onclick="changeImage(this)">
                     <img src="images/AdjustableHead1.png" class="thumb" onclick="changeImage(this)">
                     <img src="images/AdjustableHead3.png" class="thumb" onclick="changeImage(this)">
-                    <!-- Video Thumb -->
-                    <div class="video-thumb" onclick="playVideo(this)">
+                    <!-- Video Thumb with Data Attribute -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/high-back-video.mp4">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
@@ -356,9 +352,16 @@
 
             <!-- Info -->
             <div class="product-info">
+                <!-- Back to Collection Link Moved Here -->
+                <div class="back-link">
+                    <a href="ExecutiveChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+
                 <h1>High-Back Premium</h1>
                 <p class="subtitle">Maximum support, ultimate authority.</p>
-                <p>Designed for leaders who spend long hours at their desk. The High-Back Premium offers superior lumbar support, adjustable headrest, and genuine leather upholstery.</p>
+                <p>The High-Back Premium is the ultimate symbol of authority and comfort. Designed for leaders, its genuine leather upholstery and adjustable headrest provide superior lumbar and neck support. Perfect for long hours, it combines executive styling with ergonomic design, ensuring you remain productive and poised in any high-stakes environment.</p>
                 
                 <a href="contact.html" class="enquire-btn">Enquire Now</a>
             </div>
@@ -367,12 +370,6 @@
 
     <!-- MID BACK DETAIL -->
     <section id="mid-back" class="product-detail">
-        <div class="back-link">
-            <a href="ExecutiveChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <div class="product-gallery">
                 <div class="main-display">
@@ -381,14 +378,22 @@
                 <div class="thumbnail-gallery">
                     <img src="images/arc_align_pro2.jpeg" class="thumb active" onclick="changeImage(this)">
                     <img src="images/ExecutivePage/mid-back1.png" class="thumb" onclick="changeImage(this)">
-                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                    <!-- Video Thumb with Data Attribute -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/mid-back-video.mp4"><i class="fas fa-play"></i></div>
                 </div>
             </div>
 
             <div class="product-info">
+                <!-- Back to Collection Link Moved Here -->
+                <div class="back-link">
+                    <a href="ExecutiveChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+
                 <h1>Mid-Back Manager</h1>
                 <p class="subtitle">Sleek mobility for the modern leader.</p>
-                <p>A perfect blend of style and function. Ideal for managers who need to move between meeting rooms and desks effortlessly.</p>
+                <p>A perfect blend of style and function, the Mid-Back Manager is ideal for the modern leader. It offers sleek mobility for effortless movement between desks and meeting rooms. With supportive cushioning and a professional silhouette, this chair delivers the comfort you need without sacrificing the elegant, commanding look you require.</p>
                 <a href="contact.html" class="enquire-btn">Enquire Now</a>
             </div>
         </div>
@@ -396,29 +401,31 @@
 
     <!-- ERGONOMIC DETAIL -->
     <section id="ergonomic" class="product-detail">
-        <div class="back-link">
-            <a href="ExecutiveChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <div class="product-gallery">
                 <div class="main-display">
-                    <img src="images/ExecutivePage/ergo1.jpeg">
+                    <img src="images/arc_aura1.jpeg">
                 </div>
                 <div class="thumbnail-gallery">
                     <img src="images/arc_aura1.jpeg" class="thumb active" onclick="changeImage(this)">
                     <img src="images/ExecutivePage/ergo2.jpeg" class="thumb" onclick="changeImage(this)">
                     <img src="images/HB-ErgonomicOfficeChair/ergo3.png" class="thumb" onclick="changeImage(this)">
-                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                    <!-- Video Thumb with Data Attribute -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/ergonomic-video.mp4"><i class="fas fa-play"></i></div>
                 </div>
             </div>
 
             <div class="product-info">
+                <!-- Back to Collection Link Moved Here -->
+                <div class="back-link">
+                    <a href="ExecutiveChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+
                 <h1>Ergonomic Executive</h1>
                 <p class="subtitle">Science meets luxury.</p>
-                <p>Clinically designed to reduce back pain and improve posture during long working hours.</p>
+                <p>Where science meets luxury, the Ergonomic Executive is clinically designed to reduce back pain and improve posture. Its advanced ergonomic features promote healthy alignment during long working hours. This chair doesn't just look sophisticated; it actively supports your body, allowing you to focus on leading with absolute confidence and ease..</p>
                 <a href="contact.html" class="enquire-btn">Enquire Now</a>
             </div>
         </div>
@@ -426,12 +433,6 @@
 
     <!-- MESH DETAIL -->
     <section id="mesh" class="product-detail">
-        <div class="back-link">
-            <a href="ExecutiveChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <div class="product-gallery">
                 <div class="main-display">
@@ -441,14 +442,22 @@
                     <img src="images/arc_vertex1.jpeg" class="thumb active" onclick="changeImage(this)">
                     <img src="images/ExecutivePage/mesh1.png" class="thumb" onclick="changeImage(this)">
                     <img src="images/ExecutivePage/mesh2.png" class="thumb" onclick="changeImage(this)">
-                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                    <!-- Video Thumb with Data Attribute -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/mesh-video.mp4"><i class="fas fa-play"></i></div>
                 </div>
             </div>
 
             <div class="product-info">
+                <!-- Back to Collection Link Moved Here -->
+                <div class="back-link">
+                    <a href="ExecutiveChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+
                 <h1>Mesh Executive</h1>
                 <p class="subtitle">Cool, breathable command.</p>
-                <p>Stay cool under pressure. The Mesh Executive combines executive styling with breathable comfort and ergonomic support.</p>
+                <p>Stay cool under pressure with the Mesh Executive. This chair combines executive styling with breathable comfort, offering superior airflow to keep you fresh all day. Its ergonomic mesh design provides essential support, making it the perfect choice for leaders who need to maintain a professional look and feel comfortable at the same time.</p>
                 <a href="contact.html" class="enquire-btn">Enquire Now</a>
             </div>
         </div>
@@ -580,7 +589,7 @@
             if(videoThumb) videoThumb.classList.remove('active');
         }
 
-        // 5. Video Play Logic
+        // 5. Video Play Logic (Updated to support different videos)
         function playVideo(btn) {
             // Find the closest parent gallery container
             const gallery = btn.closest('.product-gallery');
@@ -588,10 +597,13 @@
             // Find the display area inside THIS gallery
             const display = gallery.querySelector('.main-display');
 
+            // Get the video source from the data-video attribute
+            const videoSrc = btn.dataset.video;
+
             // Inject Video HTML
             display.innerHTML = `
                 <video controls autoplay style="width:100%; height:100%; object-fit:contain;">
-                    <source src="videos/Executive_Ergonomic.mp4" type="video/mp4" />
+                    <source src="${videoSrc}" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             `;

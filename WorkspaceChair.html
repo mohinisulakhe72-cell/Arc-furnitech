@@ -238,15 +238,18 @@
             font-size: 16px;
         }
 
+        /* --- UPDATED STYLES --- */
         .enquire-btn {
-            display: inline-block;
-            padding: 15px 40px;
+            display: block; /* Changed to block for centering */
+            margin: 20px auto 0; /* Centers horizontally with top margin */
+            width: fit-content; /* Ensures it doesn't stretch full width */
+            padding: 10px 25px; /* Smaller padding */
             background: #43b78c;
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 14px; /* Smaller font size */
             transition: background 0.3s;
         }
 
@@ -255,8 +258,7 @@
         }
 
         .back-link {
-            max-width: 1200px;
-            margin: 0 auto 20px;
+            margin-bottom: 20px; /* Spacing for the link inside the info box */
             display: block;
         }
 
@@ -285,7 +287,7 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
+            <li><a href="product.html">Products</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -308,35 +310,35 @@
 
             <!-- CARD 2 -->
             <div class="exec-card" data-target="mid-back">
-                <img src="images/arc_align_pro2.jpeg">
+                <img src="images/workspace/perforatedchair.jpeg">
                 <h3>Perforated Chair</h3>
                 <p>Distinctive chair with hollow backrest and seat.</p>
             </div>
 
             <!-- CARD 3 -->
             <div class="exec-card" data-target="ergonomic">
-                <img src="images/arc_aura1.jpeg">
+                <img src="images/workspace/redfab.jpeg">
                 <h3>Red Fabric Chair</h3>
                 <p>Red fabric, black arms.</p>
             </div>
 
             <!-- CARD 4 -->
             <div class="exec-card" data-target="padded">
-                <img src="images/arc_vertex1.jpeg">
+                <img src="images/workspace/paddedchair.jpeg">
                 <h3>Padded Chair</h3>
                 <p>Mesh back, padded seat.</p>
             </div>
 
             <!-- CARD 5 -->
             <div class="exec-card" data-target="platform">
-                <img src="images/arc_vertex1.jpeg">
+                <img src="images/workspace/platformchair.jpeg">
                 <h3>Platform Chair</h3>
                 <p>Chair on raised platform.</p>
             </div>
 
             <!-- CARD 6 -->
             <div class="exec-card" data-target="task">
-                <img src="images/arc_vertex1.jpeg">
+                <img src="images/workspace/taskchair.jpeg">
                 <h3>Task Chair</h3>
                 <p>Simple indoor office chair.</p>
             </div>
@@ -345,12 +347,6 @@
 
     <!-- Black Mesh DETAIL -->
     <section id="black-mesh" class="product-detail">
-        <div class="back-link">
-            <a href="WorkspaceChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <!-- Gallery -->
             <div class="product-gallery">
@@ -359,10 +355,9 @@
                 </div>
                 <div class="thumbnail-gallery">
                     <img src="images/workspace/black mesh.png" class="thumb active" onclick="changeImage(this)">
-                    <img src="images/AdjustableHead1.png" class="thumb" onclick="changeImage(this)">
-                    <img src="images/AdjustableHead3.png" class="thumb" onclick="changeImage(this)">
-                    <!-- Video Thumb -->
-                    <div class="video-thumb" onclick="playVideo(this)">
+                    <img src="images/workspace/black mesh2.jpeg" class="thumb" onclick="changeImage(this)">
+                    <!-- Video Thumb - ADD VIDEO SOURCE HERE -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/black-mesh-video.mp4">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
@@ -370,6 +365,12 @@
 
             <!-- Info -->
             <div class="product-info">
+                <div class="back-link">
+                    <a href="WorkspaceChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+                
                 <h1>Black Mesh Chair</h1>
                 <p class="subtitle">Black mesh back with armrests and wheels.</p>
                 <p>The image displays an indoor office scene centered around a classic black mesh office chair. It features armrests and a five-star caster base for mobility. The chair is positioned in front of a white wall with a black flat-screen TV mounted above. The floor is brown with matching baseboards, creating a simple and clean layout focused on office furniture.</p>
@@ -381,25 +382,27 @@
 
     <!-- Perforated Chair DETAIL -->
     <section id="mid-back" class="product-detail">
-        <div class="back-link">
-            <a href="WorkspaceChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <div class="product-gallery">
                 <div class="main-display">
-                    <img src="images/arc_align_pro2.jpeg" alt="Mid Back">
+                    <img src="images/workspace/perforatedchair.jpeg" alt="Mid Back">
                 </div>
                 <div class="thumbnail-gallery">
-                    <img src="images/arc_align_pro2.jpeg" class="thumb active" onclick="changeImage(this)">
-                    <img src="images/ExecutivePage/mid-back1.png" class="thumb" onclick="changeImage(this)">
-                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                    <img src="images/workspace/perforatedchair.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/workspace/perforatedchair2.jpeg" class="thumb" onclick="changeImage(this)">
+                    <img src="images/workspace/perforatedchair3.jpeg" class="thumb" onclick="changeImage(this)">
+                    <!-- Video Thumb - ADD VIDEO SOURCE HERE -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/perforated-video.mp4"><i class="fas fa-play"></i></div>
                 </div>
             </div>
 
             <div class="product-info">
+                <div class="back-link">
+                    <a href="WorkspaceChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+
                 <h1>Perforated Chair</h1>
                 <p class="subtitle">Distinctive chair with hollow backrest and seat.</p>
                 <p>This image features an office chair that stands out due to its yellow hollow (perforated) backrest paired with a black seat. The chair is supported by a five-wheeled rolling base that includes protective covers on the legs. It is set against a white wall with a brown baseboard and floor, presented in a minimalist manner that highlights the chair's unique design.</p>
@@ -410,26 +413,26 @@
 
     <!-- Red Fabric Chair DETAIL -->
     <section id="ergonomic" class="product-detail">
-        <div class="back-link">
-            <a href="WorkspaceChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <div class="product-gallery">
                 <div class="main-display">
-                    <img src="images/ExecutivePage/ergo1.jpeg">
+                    <img src="images/workspace/redfab.jpeg" alt="Red Fabric Chair">
                 </div>
                 <div class="thumbnail-gallery">
-                    <img src="images/arc_aura1.jpeg" class="thumb active" onclick="changeImage(this)">
-                    <img src="images/ExecutivePage/ergo2.jpeg" class="thumb" onclick="changeImage(this)">
-                    <img src="images/HB-ErgonomicOfficeChair/ergo3.png" class="thumb" onclick="changeImage(this)">
-                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                    <img src="images/workspace/redfab.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/workspace/redfab2.jpeg" class="thumb" onclick="changeImage(this)">
+                    <!-- Video Thumb - ADD VIDEO SOURCE HERE -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/red-fabric-video.mp4"><i class="fas fa-play"></i></div>
                 </div>
             </div>
 
             <div class="product-info">
+                <div class="back-link">
+                    <a href="WorkspaceChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+
                 <h1>Red Fabric Chair</h1>
                 <p class="subtitle">Red fabric, black arms</p>
                 <p>The picture shows a red fabric office chair designed with black armrests and a five-pointed star base equipped with wheels. The chair rests on a brown floor against a white wall background. It represents a standard office setup without any text or document elements, focusing entirely on the colorful fabric furniture.</p>
@@ -440,26 +443,26 @@
 
     <!-- Padded Chair DETAIL -->
     <section id="padded" class="product-detail">
-        <div class="back-link">
-            <a href="WorkspaceChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <div class="product-gallery">
                 <div class="main-display">
-                    <img src="images/arc_vertex1.jpeg">
+                    <img src="images/workspace/paddedchair.jpeg">
                 </div>
                 <div class="thumbnail-gallery">
-                    <img src="images/arc_vertex1.jpeg" class="thumb active" onclick="changeImage(this)">
-                    <img src="images/ExecutivePage/mesh1.png" class="thumb" onclick="changeImage(this)">
-                    <img src="images/ExecutivePage/mesh2.png" class="thumb" onclick="changeImage(this)">
-                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                    <img src="images/workspace/paddedchair.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/workspace/paddedchair2.jpeg" class="thumb" onclick="changeImage(this)">
+                    <!-- Video Thumb - ADD VIDEO SOURCE HERE -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/padded-video.mp4"><i class="fas fa-play"></i></div>
                 </div>
             </div>
 
             <div class="product-info">
+                <div class="back-link">
+                    <a href="WorkspaceChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+
                 <h1>Padded Chair</h1>
                 <p class="subtitle">Mesh back, padded seat</p>
                 <p>This image showcases an indoor scene where a black office chair with a mesh backrest, armrests, and a five-wheel base is the central focus. The upper wall features a mounted black flat-screen TV and an air conditioning unit in the top left corner. The background includes a white wall and brown baseboards, with the chair situated on a brown platform.</p>
@@ -469,26 +472,26 @@
     </section>
     <!-- Platform Chair DETAIL -->
     <section id="platform" class="product-detail">
-        <div class="back-link">
-            <a href="WorkspaceChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <div class="product-gallery">
                 <div class="main-display">
-                    <img src="images/arc_vertex1.jpeg">
+                    <img src="images/workspace/platformchair.jpeg">
                 </div>
                 <div class="thumbnail-gallery">
-                    <img src="images/arc_vertex1.jpeg" class="thumb active" onclick="changeImage(this)">
-                    <img src="images/ExecutivePage/mesh1.png" class="thumb" onclick="changeImage(this)">
-                    <img src="images/ExecutivePage/mesh2.png" class="thumb" onclick="changeImage(this)">
-                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                    <img src="images/workspace/platformchair.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/workspace/platformchair2.jpeg" class="thumb" onclick="changeImage(this)">
+                    <!-- Video Thumb - ADD VIDEO SOURCE HERE -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/platform-video.mp4"><i class="fas fa-play"></i></div>
                 </div>
             </div>
 
             <div class="product-info">
+                <div class="back-link">
+                    <a href="WorkspaceChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+
                 <h1>Platform Chair</h1>
                 <p class="subtitle">Chair on raised platform.</p>
                 <p>The image illustrates a black mesh office chair complete with armrests and a five-wheel base. Uniquely, this chair is placed on a brown tabletop or raised platform rather than the bare floor. The background consists of a white wall with a black wall-mounted device above and a brown baseboard, depicting a clean indoor office scene.</p>
@@ -498,26 +501,26 @@
     </section>
     <!-- Task Chair DETAIL -->
     <section id="task" class="product-detail">
-        <div class="back-link">
-            <a href="WorkspaceChair.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back to Collection
-            </a>
-        </div>
-
         <div class="exec-detail-container">
             <div class="product-gallery">
                 <div class="main-display">
-                    <img src="images/arc_vertex1.jpeg">
+                    <img src="images/workspace/taskchair.jpeg">
                 </div>
                 <div class="thumbnail-gallery">
-                    <img src="images/arc_vertex1.jpeg" class="thumb active" onclick="changeImage(this)">
-                    <img src="images/ExecutivePage/mesh1.png" class="thumb" onclick="changeImage(this)">
-                    <img src="images/ExecutivePage/mesh2.png" class="thumb" onclick="changeImage(this)">
-                    <div class="video-thumb" onclick="playVideo(this)"><i class="fas fa-play"></i></div>
+                    <img src="images/workspace/taskchair.jpeg" class="thumb active" onclick="changeImage(this)">
+                    <img src="images/workspace/taskchair2.png" class="thumb" onclick="changeImage(this)">
+                    <!-- Video Thumb - ADD VIDEO SOURCE HERE -->
+                    <div class="video-thumb" onclick="playVideo(this)" data-video="videos/task-video.mp4"><i class="fas fa-play"></i></div>
                 </div>
             </div>
 
             <div class="product-info">
+                <div class="back-link">
+                    <a href="WorkspaceChair.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Back to Collection
+                    </a>
+                </div>
+
                 <h1>Task Chair</h1>
                 <p class="subtitle">Simple indoor office chair</p>
                 <p>This image showcases an indoor scene where a black office chair with a mesh backrest, armrests, and a five-wheel base is the central focus. The upper wall features a mounted black flat-screen TV and an air conditioning unit in the top left corner. The background includes a white wall and brown baseboards, with the chair situated on a brown platform.</p>
@@ -652,7 +655,7 @@
             if(videoThumb) videoThumb.classList.remove('active');
         }
 
-        // 5. Video Play Logic
+        // 5. Video Play Logic (Updated to support different videos)
         function playVideo(btn) {
             // Find the closest parent gallery container
             const gallery = btn.closest('.product-gallery');
@@ -660,10 +663,13 @@
             // Find the display area inside THIS gallery
             const display = gallery.querySelector('.main-display');
 
+            // Get the video source from the data-video attribute
+            const videoSrc = btn.dataset.video;
+
             // Inject Video HTML
             display.innerHTML = `
                 <video controls autoplay style="width:100%; height:100%; object-fit:contain;">
-                    <source src="videos/executive.mp4" type="video/mp4" />
+                    <source src="${videoSrc}" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             `;
