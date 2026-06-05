@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cafeteria Furniture</title>
+<link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f8f8f8;
+}
+
+/* HEADER */
+
+header{
+padding:40px;
+text-align:center;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+header h1{
+font-size:42px;
+}
+
+/* TEMPLATE GRID */
+
+.template-grid{
+max-width:1400px;
+margin:auto;
+padding:50px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card-content h3{
+margin-bottom:10px;
+}
+
+.card-content p{
+color:#666;
+line-height:1.6;
+}
+
+/* DETAIL PAGE */
+
+.detail-page{
+display:none;
+max-width:1200px;
+margin:auto;
+padding:50px 20px;
+}
+
+.back-btn{
+    background:none;
+    border:none;
+    color:#3DB79F;
+    font-size:22px;
+    font-weight:700;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    padding:0;
+    margin-bottom:40px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.back-btn:hover{
+    color:#2f9c87;
+}
+
+.hero-image{
+width:100%;
+height:500px;
+object-fit:cover;
+border-radius:20px;
+}
+
+.hero-container{
+    width:100%;
+    margin-bottom:20px;
+}
+
+#heroVideo{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.detail-title{
+font-size:40px;
+margin:25px 0;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.feature{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.06);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/arclogo.webp" alt="Logo">
+            <h2>Arc Furnitech</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+<header>
+<h1>Cafeteria Seating Collection</h1>
+</header>
+
+<!-- TEMPLATE SECTION -->
+
+<section id="templates">
+
+<div class="template-grid">
+
+<div class="card" onclick="openLayout('corporate')">
+<img src="images\cafeteria\image1.png">
+<div class="card-content">
+<h3>The Vibrant Monochrome Molded Chair</h3>
+</div>
+</div>
+
+<div class="card" onclick="openLayout('premium')">
+<img src="images\cafeteria\image2.png">
+<div class="card-content">
+<h3>The Wood-Tone Minimalist Chair</h3>
+</div>
+</div>
+
+<div class="card" onclick="openLayout('foodcourt')">
+<img src="images\cafeteria\image3.png">
+<div class="card-content">
+<h3>The Woven-Texture Armchair</h3>
+</div>
+</div>
+
+<div class="card" onclick="openLayout('outdoor')">
+<img src="images\cafeteria\image4.png">
+<div class="card-content">
+<h3>The Slatted Hollow-Back Chair</h3>
+</div>
+</div>
+
+<div class="card" onclick="openLayout('breakout')">
+<img src="images\cafeteria\image6.png">
+<div class="card-content">
+<h3>The Classic Air-Hole Cafe Chair</h3>
+</div>
+</div>
+
+<div class="card" onclick="openLayout('coffee')">
+<img src="images\cafeteria\image5.png">
+<div class="card-content">
+<h3>Cutout Pedestal Bistro Table</h3>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- DETAIL VIEW -->
+
+<section id="detailPage" class="detail-page">
+
+<button class="back-btn" onclick="goBack()">
+    <span>← Back</span>
+</button>
+
+<div class="hero-container">
+ <video
+    id="heroVideo"
+    class="hero-image"
+    autoplay
+    muted
+    loop
+    playsinline
+    oncontextmenu="return false">
+</video>
+</div>
+
+<h2 id="title" class="detail-title"></h2>
+
+<p id="description"></p>
+
+<div id="features" class="features"></div>
+
+<div id="gallery" class="gallery"></div>
+
+</section>
+
+<script>
+
+const layouts={
+
+corporate:{
+title:"Vibrant Monochrome Molded Chair Cafeteria",
+video:"videos/cafeChair1.2.mp4",
+description:" Features a one-piece, seamless molded construction with a solid, striking color. The bright green acts as a bold accent piece against neutral backgrounds.",
+features:[
+"Vibrant Color",
+"One-Piece Design",
+"Easy Cleaning",
+"Indoor/Outdoor Versatility"
+],
+gallery:[
+"images/cafeteria/cafechair2.jpg",
+"images/cafeteria/cafechair1.png",
+"images/cafeteria/cafechair3.png"
+]
+},
+
+premium:{
+title:"Wood-Tone Minimalist Chair",
+video:"videos/cafeChair1.1.mp4",
+description:"Design: Combines the sleek, smooth lines of modern plastic with a light brown, wood-inspired finish. It offers the warm aesthetic of wood with the durability and lightweight nature of plastic.",
+features:[
+"Warm Wood-Tone",
+"Curved Shell",
+"Wipe-Clean Surface",
+"Lightweight Build"
+],
+gallery:[
+"images/cafeteria/cafechair4.png",
+"images/cafeteria/cafechair5.jpeg",
+"images/cafeteria/cafechair6.png"
+]
+},
+
+foodcourt:{
+title:"Woven-Texture Armchair",
+image:"images/foodcourt.jpg",
+description:"Design: Features a beautifully crafted woven texture on the seat and back, mimicking traditional rattan or wicker, but made from durable plastic. Includes integrated armrests for enhanced comfort.",
+features:[
+"Woven Texture",
+"Supportive Armrests",
+"Weather-Resistant",
+"Breathable Seat"
+],
+gallery:[
+"images/cafeteria/cafechair7.png",
+"images/cafeteria/cafechair8.jpeg"
+]
+},
+
+outdoor:{
+title:"Slatted Hollow-Back Chair",
+image:"images/outdoor.jpg",
+description:"Design: Features vertical slats or a hollowed-out backrest, often drawing inspiration from traditional Victorian cafe chairs but executed in modern plastic. The contrasting dark legs add a contemporary touch.",
+features:[
+"Geometric Cutouts",
+"Stackable Design",
+"Contrasting Legs",
+"Flexible Support"
+],
+gallery:[
+"images/cafeteria/cafechair9.jpeg",
+"images/cafeteria/cafechair10.jpg"
+]
+},
+
+breakout:{
+title:"Classic Air-Hole Cafe Chair",
+image:"images/breakout.jpg",
+description:"Design: The classic, commercial-grade stackable chair featuring evenly distributed small circular holes. This is a staple in the furniture industry for high-traffic areas.",
+features:[
+"Ventilated Design",
+"Quick Drainage",
+"Stackable Storage",
+"Commercial Grade"
+],
+gallery:[
+"images/cafeteria/cafechair12.png",
+"images/cafeteria/cafechair11.png"
+]
+},
+
+coffee:{
+title:"Cutout Pedestal Bistro Table",
+image:"images/coffee.jpg",
+description:"This table features a bold, modern industrial design. The perfectly round tabletop is characterized by its uniform, dense perforations (small cut-out holes), which create a striking geometric pattern.",
+features:[
+"Pedestal Base",
+"Round Tables",
+"Compact Design",
+"Premium Feel"
+],
+gallery:[
+"images/cafeteria/cafechair13.jpg",
+"images/coffee2.jpg"
+]
+}
+
+};
+
+function openLayout(layout){
+
+const data=layouts[layout];
+
+document.getElementById('templates').style.display='none';
+
+document.getElementById('detailPage').style.display='block';
+
+const video = document.getElementById("heroVideo");
+
+video.src = data.video;
+
+video.load();
+
+document.getElementById('title').innerHTML=data.title;
+
+document.getElementById('description').innerHTML=data.description;
+
+let features='';
+
+data.features.forEach(item=>{
+features+=`<div class="feature">${item}</div>`;
+});
+
+document.getElementById('features').innerHTML=features;
+
+let gallery='';
+
+data.gallery.forEach(img=>{
+gallery+=`<img src="${img}">`;
+});
+
+document.getElementById('gallery').innerHTML=gallery;
+
+history.pushState(
+{layout},
+"",
+"?layout="+layout
+);
+
+window.scrollTo(0,0);
+
+}
+
+function goBack(){
+
+document.getElementById('templates').style.display='block';
+
+document.getElementById('detailPage').style.display='none';
+
+history.pushState(
+{},
+"",
+window.location.pathname
+);
+
+}
+
+window.onload=()=>{
+
+const params=new URLSearchParams(window.location.search);
+
+const layout=params.get('layout');
+
+if(layout && layouts[layout]){
+
+openLayout(layout);
+
+}
+
+};
+
+</script>
+
+
+    <!-- PREMIUM FOOTER -->
+    <footer class="premium-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="brand-slider">
+                    <div class="brand-track" id="brandTrack">
+                        <span>Arc Furnitech</span>
+                        <span>आर्क फर्निटेक</span>
+                        <span>ஆர்க் ஃபர்னிடெக்</span>
+                        <span>ఆర్క్ ఫర్నిటెక్</span>
+                        <span>આર્ક ફર્નિટેક</span>
+                    </div>
+                </div>
+                <p class="footer-brand-text">Premium office furniture crafted for modern workspaces and productivity.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column"><h3>About</h3><a href="about.html">Our Story</a><a href="#">Factory</a><a href="#">Design Process</a><a href="#">Careers</a></div>
+                <div class="footer-column"><h3>Products</h3><a href="product.html">Office Chairs</a><a href="#">Workstations</a><a href="#">Conference Tables</a><a href="#">Storage Units</a></div>
+                <div class="footer-column"><h3>Services</h3><a href="#">Customization</a><a href="#">Installation</a><a href="#">Bulk Orders</a><a href="#">Support</a></div>
+                <div class="footer-column"><h3>Contact</h3><a href="contact.html">Contact Us</a><a href="#">Nagpur Office</a><a href="#">Google Maps</a><a href="#">WhatsApp</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-cities"><h4>Cities We Serve</h4><p>Nagpur | Pune | Mumbai | Hyderabad | Bengaluru | Raipur | Indore</p></div>
+            <div class="footer-categories"><h4>Furniture Categories</h4><p>Ergonomic Chairs | Executive Seating | Workstations | Conference Tables | Storage Solutions</p></div>
+        </div>
+        <div class="footer-copy"><p>© 2026 Arc Furnitech. All Rights Reserved.</p></div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
